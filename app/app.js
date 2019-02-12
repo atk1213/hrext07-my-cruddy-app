@@ -51,15 +51,18 @@ $(document).ready(function(){
       alert("Please fill in empty fields before adding")
     // } else if ($(".input-title").val().trim() !== "" && $(".input-textbox" || ".input-snippet" || ".input-whiteboard").val().trim() !== ""){
     } else if ($(".input-title").val().trim() !== "" && $(".input-textbox").val().trim() !== "") {
+      //moment js
+      var currentTime = moment();
+      var currentTimeDisplay = currentTime.format("dddd, MMMM Do YYYY, h:mm:ss a");
       postTitle = $(".input-title").val().trim();
-      postTimestamp;
+      postTimestamp = currentTimeDisplay;
       postContent["text"] = $(".input-textbox").val().trim();
       // postContent["whiteboard"] =;
       // postContent["snippet"] = ;
       // postTags = ;
       var newPost = {
         title: postTitle,
-        // timeStamp: postTimestamp,
+        timeStamp: postTimestamp,
         content: postContent,
         // tags: postTags,
     };
@@ -69,6 +72,28 @@ $(document).ready(function(){
     };
   });
 
+  database.ref().on("child_added", function (childSnapshot, prevChildKey) {
+    postTitle = childSnapshot.val().title;
+    // try to calculate time since post to use here
+    postTimestamp = childSnapshot.val().timeStamp;
+    postContent["text"] = childSnapshot.val().content["text"];
+    postContent["whiteboard"] = childSnapshot.val().content["whiteboard"];
+    postContent["snippet"] = childSnapshot.val().content["snippet"];
+    var iconStyle;
+    if (postContent["snippet"] !== undefined) {
+      // if code exists, use code icon
+      iconStyle = "../images/code.png";
+    } else if (postContent["whiteboard"] !== undefined && postContent["snippet"] == undefined){
+      // if whiteboard exists when code does not, use whiteboard icon
+      iconStyle = "../images/whiteboard.png";
+    } else if (postContent["text"] !== undefined  && postContent["whiteboard"] == undefined && postContent["snippet"] == undefined){
+      // if text exists but whiteboard and code do not, use text icon
+      iconStyle = "../images/text.png";
+    };
+    $(".cards-container").append(
+
+      );
+});
 
   // update db
     // need to expand when  more than 1 item is added
