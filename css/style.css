@@ -1,0 +1,72 @@
+body{
+    background-image: url("../images/background.png");
+}
+
+.jumbotron {
+    background: rgba(163, 158, 158, 0.5); 
+}
+
+.btn-container{
+    display: flex;
+    justify-content: space-around;
+
+}
+
+.main-container {
+    background: rgba(163, 158, 158, 0.5);
+
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.cards-container{
+    /* display: flex;
+    justify-content: space-around; */
+    display: none
+}
+
+.whiteboard-entry{
+    display: none;
+}
+.snippet-entry{
+    display: none;
+}
+.text-entry{
+    /* display: none; */
+
+}
+
+.input-title{
+    width: 50%;
+}
+
+.input-textbox{
+    width: 90%;
+    height: 50%;
+    overflow: auto;
+}
+/* .cards-container{
+
+}
+.whiteboard-entry{
+
+}
+.snippet-entry{
+
+}
+.text-entry{
+
+}
+.save-entry-button{
+
+} */
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    height: 50px;
+    margin-top: 50px;
+}
