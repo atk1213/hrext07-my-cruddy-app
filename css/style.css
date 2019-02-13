@@ -2,14 +2,24 @@ body{
     background-image: url("../images/background.png");
 }
 
+.view-page{
+    cursor: pointer
+}
+
+.post-page {
+    cursor: pointer
+}
+
 .jumbotron {
     background: rgba(163, 158, 158, 0.5); 
 }
 
 .btn-container{
-    display: flex;
+    display: none;
+    /* display: flex; */
     justify-content: space-around;
-
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .main-container {
@@ -22,10 +32,32 @@ body{
     justify-content: center;
 }
 
+.input-title{
+    display: none;
+    margin-bottom: 10px;
+    margin-top: 3px;
+}
+
 .cards-container{
-    /* display: flex;
-    justify-content: space-around; */
-    display: none
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 3%;
+
+}
+
+.card {
+    width: 225px;
+    height: 300px;
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
+
+.card-img-top {
+    width: 100px;
+    height: 100px;
+    margin-left: 28%;
+    margin-right:28%
 }
 
 .whiteboard-entry{
@@ -35,7 +67,7 @@ body{
     display: none;
 }
 .text-entry{
-    /* display: none; */
+    display: none;
 
 }
 
@@ -48,10 +80,9 @@ body{
     height: 50%;
     overflow: auto;
 }
-/* .cards-container{
 
-}
-.whiteboard-entry{
+
+/* .whiteboard-entry{
 
 }
 .snippet-entry{
