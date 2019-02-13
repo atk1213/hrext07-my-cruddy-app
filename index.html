@@ -12,10 +12,30 @@
   <script src="app/app.js"></script>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
     crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" 
+    crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" 
+    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand view-page">Dev Blog</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link view-page">View Posts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link post-page">New Post</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
   <div class="jumbotron">
     <h1 class="display-4">Dev Blog</h1>
     <p class="lead">Welcome to the journal for developers.</p>
@@ -24,7 +44,7 @@
     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
   </div>
   <div class="container main-container">
-      <div class="row">
+      <div class="row-top">
           <div class="col-xs-12 col-md-10" style="overflow:auto">
             <!-- Allow user to post a combination of snippet, whiteboard, or text  -->
               <div class="btn-container">
@@ -34,16 +54,39 @@
                       <button type="button" class="btn btn-danger btn-text">Text</button>
                     </div>
               </div>
+              <input type="text" class="input-title" placeholder="enter title">
           </div>
       </div>
-      <div class = "row">
+      <!-- modal to view post -->
+      <div class="modal fade postModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Modal title</h5>
+                <!-- <h5 class="modal-title"></h5> -->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                ...
+              </div>
+              <!-- <div class="modal-body"></div> -->
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <!-- refactor later to have "Save changes" function as update -->
+                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      <div class = "row-bottom">
           <div class="col-xs-12 col-md-10 container-data">
             <!-- populate this space with:
               - cards to view posts
               - div to hold post/entry part 
                 - this part gets populated with input form/whiteboard/snippet
             -->
-            <input type="text" class="input-title" placeholder="enter title">
             <div class = "whiteboard-entry">Whiteboard Placeholder</div>
             <div class = "snippet-entry">Snippet Placeholder</div>
             <div class = "text-entry">
@@ -51,14 +94,16 @@
                       <textarea class="input-textbox" placeholder="enter text" rows="7"></textarea>
                 </div>
             </div>
-            <button class="btn-add-local">Save to Local Machine</button>
-            <button class="btn-add-db">Save to Database</button>
-            <!-- <button class="btn-update">Update</button> -->
-            <button class="btn-delete-local">Delete from Local Machine</button>
-            <button class="btn-delete-db">Delete from Database</button>
-            <button class="btn-clear">Clear Local Machine</button>
+            <div class = "btn-container">
+              <button class="btn-add-local">Save to Local Machine</button>
+              <button class="btn-add-db">Save to Database</button>
+              <!-- <button class="btn-update">Update</button> -->
+              <button class="btn-delete-local">Delete from Local Machine</button>
+              <button class="btn-delete-db">Delete from Database</button>
+              <button class="btn-clear">Clear Local Machine</button>
+            </div>
           </div>
-          <div class = "cards-container">Cards Container Placeholder</div>
+          <div class = "cards-container"></div>
       </div>
   <footer>
     <div class="container footer-container">
