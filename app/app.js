@@ -20,6 +20,22 @@ $(document).ready(function(){
   };
   firebase.initializeApp(config);
 
+  $(".post-page").click(function(){
+    $(".cards-container").hide();
+    $(".btn-container").show();
+    $(".btn-container").css("display", "flex");
+    $(".input-title").show();
+  });
+
+  $(".view-page").click(function(){
+    $(".cards-container").show();
+    $(".btn-container").hide();
+    $(".input-title").hide();
+    $(".whiteboard-entry").hide();
+    $(".snippet-entry").hide();
+    $(".text-entry").hide();
+  });
+
   var database = firebase.database();
   var postTitle = "";
   var postTimestamp;
@@ -82,18 +98,35 @@ $(document).ready(function(){
     var iconStyle;
     if (postContent["snippet"] !== undefined) {
       // if code exists, use code icon
-      iconStyle = "../images/code.png";
+      iconStyle = "images/code.png";
     } else if (postContent["whiteboard"] !== undefined && postContent["snippet"] == undefined){
       // if whiteboard exists when code does not, use whiteboard icon
-      iconStyle = "../images/whiteboard.png";
+      iconStyle = "images/whiteboard.png";
     } else if (postContent["text"] !== undefined  && postContent["whiteboard"] == undefined && postContent["snippet"] == undefined){
       // if text exists but whiteboard and code do not, use text icon
-      iconStyle = "../images/text.png";
+      iconStyle = "images/text.png";
     };
     $(".cards-container").append(
-
+      //"<div class='card' style='width: 15rem;'>" +
+      "<div class='card'>" +
+        "<img src=" + iconStyle + " class='card-img-top' alt='icon'>" + 
+        "<div class='card-body'>" +
+          "<h5 class= 'card-title'>" + postTitle + "</h5>" + 
+          "<p class='card-text'>" + postTimestamp + "</p>" +
+          "<button type='button' class='btn btn-primary open-post' data-toggle='modal' data-target='.postModal' data-title='" + postTitle + "'>" +
+            "Launch demo modal" +
+          "</button>" +
+        "</div>" +
+      "</div>"
       );
-});
+  });
+
+  $(".open-post").on("click", ".card-body", function(){
+    
+    // $(".modal-title").append(this);
+    // $(".modal-body").append();
+    $('.postModal').modal(focus);
+  });
 
   // update db
     // need to expand when  more than 1 item is added
