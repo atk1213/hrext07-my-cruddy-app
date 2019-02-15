@@ -20,7 +20,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand view-page">Dev Blog</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -40,71 +40,53 @@
     <h1 class="display-4">Dev Blog</h1>
     <p class="lead">Welcome to the journal for developers.</p>
     <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    <p>This application is under construction. Thank you for your patience.</p>
+    <!-- <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a> -->
   </div>
   <div class="container main-container">
-      <div class="row-top">
+      <div class="row row-top">
           <div class="col-xs-12 col-md-10" style="overflow:auto">
-            <!-- Allow user to post a combination of snippet, whiteboard, or text  -->
-              <div class="btn-container">
+            <!-- Allow user to post a combination of snippet or whiteboard, and text  -->
+              <div class="btn-container toggle-btns">
                   <div class="btn-group-toggle" data-toggle="buttons">
                       <button type="button" class="btn btn-primary btn-whiteboard">Whiteboard</button>
                       <button type="button" class="btn btn-success btn-snippet">Snippet</button>
-                      <button type="button" class="btn btn-danger btn-text">Text</button>
                     </div>
               </div>
               <input type="text" class="input-title" placeholder="enter title">
           </div>
       </div>
-      <!-- modal to view post -->
-      <div class="modal fade postModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title">Modal title</h5>
-                <!-- <h5 class="modal-title"></h5> -->
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <!-- <div class="modal-body"></div> -->
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <!-- refactor later to have "Save changes" function as update -->
-                <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
-              </div>
-            </div>
-          </div>
-        </div>
-      <div class = "row-bottom">
+      <div class = "row row-bottom">
           <div class="col-xs-12 col-md-10 container-data">
-            <!-- populate this space with:
-              - cards to view posts
-              - div to hold post/entry part 
-                - this part gets populated with input form/whiteboard/snippet
-            -->
-            <div class = "whiteboard-entry">Whiteboard Placeholder</div>
+            <div class = "whiteboard-entry">
+                <canvas style="border:1px solid #000000; background-color:white"width="919px" height="500px" id="whiteboard"></canvas>
+            </div>
             <div class = "snippet-entry">Snippet Placeholder</div>
             <div class = "text-entry">
                 <div class="container-form">
                       <textarea class="input-textbox" placeholder="enter text" rows="7"></textarea>
                 </div>
             </div>
-            <div class = "btn-container">
+            <div class = "btn-container manage-btns">
               <button class="btn-add-local">Save to Local Machine</button>
               <button class="btn-add-db">Save to Database</button>
               <!-- <button class="btn-update">Update</button> -->
-              <button class="btn-delete-local">Delete from Local Machine</button>
-              <button class="btn-delete-db">Delete from Database</button>
               <button class="btn-clear">Clear Local Machine</button>
             </div>
           </div>
           <div class = "cards-container"></div>
       </div>
+  </div>
+  <div class="modal postModal" tabindex="-1" role="dialog" data-backdrop="static">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header"></div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+          </div>
+        </div>
+      </div>
+    </div>
   <footer>
     <div class="container footer-container">
         <span class="text-muted span-footer">&copy; 2019 Anthony Kim</span>
